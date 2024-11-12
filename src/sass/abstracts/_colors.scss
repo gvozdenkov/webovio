@@ -1,0 +1,49 @@
+$_clr-white: #fff;
+$_clr-gray-light: #d4d6d4;
+
+$_clr-yellow-dark: #4d533c;
+$_clr-yellow-vivid: #cfc598;
+$_clr-yellow-light: #b6c197;
+
+$_clr-blue-dark: #213842;
+
+$light: (
+  'neutral': (
+    200: $_clr-gray-light,
+    100: $_clr-white,
+  ),
+  'brand-primary': (
+    900: $_clr-blue-dark,
+    400: $_clr-yellow-dark,
+    100: $_clr-yellow-light,
+  ),
+  'brand-accent': (
+    400: $_clr-yellow-vivid,
+  ),
+);
+
+$dark: (
+  'neutral': (
+    200: $_clr-gray-light,
+    100: $_clr-white,
+  ),
+  'brand-primary': (
+    900: $_clr-blue-dark,
+    400: $_clr-yellow-dark,
+    100: $_clr-yellow-light,
+  ),
+  'brand-accent': (
+    400: $_clr-yellow-vivid,
+  ),
+);
+
+// Context color tokens
+
+$clr-neutral-200: var(--clr-neutral-200);
+$clr-neutral-100: var(--clr-neutral-100);
+
+$clr-brand-accent-400: var(--clr-brand-accent-400);
+
+$clr-brand-primary-900: var(--clr-brand-primary-900);
+$clr-brand-primary-400: var(--clr-brand-primary-400);
+$clr-brand-primary-100: var(--clr-brand-primary-100);

@@ -1,0 +1,19 @@
+@use '../abstracts/' as *;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $body-font-family;
+  font-size: $body-font-size;
+  font-weight: $body-font-weight;
+  line-height: $body-font-line-height;
+  color: $body-color;
+  background-color: $body-background-color;
+}
+
+a {
+  color: $link-color;
+  text-decoration: $link-text-decoration;
+}

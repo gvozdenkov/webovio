@@ -1,0 +1,44 @@
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:meta';
+@use 'sass:math';
+
+@use 'breakpoints' as *;
+
+@mixin mq($size) {
+  $breakpoint: map.get($breakpoints, $size);
+
+  @if ($breakpoint != null) {
+    @media screen and (min-width: $breakpoint) {
+      @content;
+    }
+  } @else if (meta.type-of($size) == number) {
+    @if (math.is-unitless($size)) {
+      @error 'When using a number with @mq() make sure to set number with a unit of mesurement';
+    } @else {
+      @media screen and (min-width: $size) {
+        @content;
+      }
+    }
+  } @else {
+    @error 'The keyword #{$size} is not in the $breakpoints map (/abstracts/_breakpoints.scss)';
+  }
+}
+
+@mixin border($side: all, $width: 1px, $color: #838383, $style: solid) {
+  $sides: top, right, bottom, left, all;
+
+  @if (list.index($sides, $side)) {
+    @if ($side == all) {
+      border: $color $width $style;
+    } @else {
+      border-#{$side}: $color $width $style;
+    }
+  } @else {
+    @error 'Not allowed side argument. Allowed: top, right, bottom, left, all';
+  }
+}
+
+@mixin gradient($deg, $colors...) {
+  background-image: linear-gradient($deg, $colors...);
+}

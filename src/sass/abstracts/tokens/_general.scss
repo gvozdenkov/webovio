@@ -1,0 +1,28 @@
+@use '../colors' as *;
+@use '../sizes' as *;
+@use '../typography' as *;
+
+$active-theme: $light;
+
+// body
+$body-font-family: $ff-primary;
+$body-font-size: $fs-400;
+$body-font-line-height: $lh-400;
+$body-font-weight: $fw-400;
+$body-color: $clr-brand-primary-400;
+$body-background-color: $clr-neutral-100;
+
+$link-color: $clr-brand-primary-400;
+$link-text-decoration: underline;
+
+// Layout
+$grid-gap: $size-5;
+$flex-gap: $size-4;
+
+$section-block-padding: clamp(3rem, 8vh, 7rem);
+
+$modal-padding: 3.125rem;
+
+$container-inline-padding: 1rem;
+$container-max-width: 85.75rem;
+$container-max-width-wide: 100rem;

@@ -1,0 +1,10 @@
+@use '../abstracts/' as *;
+
+@each $screen-size, $font-map in $font-sizes {
+  @each $size, $value in $font-map {
+    .fs-#{$size} {
+      font-size: var(--fs-#{$size});
+      line-height: var(--lh-#{$size});
+    }
+  }
+}

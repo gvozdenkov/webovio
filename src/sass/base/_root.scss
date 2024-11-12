@@ -1,0 +1,42 @@
+@use 'sass:map';
+@use 'sass:list';
+@use 'sass:meta';
+@use '../abstracts/' as *;
+
+:root {
+  // Generate all colors custom props
+  @each $color, $shade-map in $active-theme {
+    @each $shade, $value in $shade-map {
+      --clr-#{$color}-#{$shade}: #{$value};
+    }
+  }
+
+  // Generate font sizes and line-height for all breakpoints
+  @each $screen-size, $size-map in $font-sizes {
+    @if ($screen-size == 'small') {
+      @each $size, $value-map in $size-map {
+        @each $fs, $lh in $value-map {
+          --fs-#{$size}: #{list.nth($value-map, 1)};
+          --lh-#{$size}: #{list.nth($value-map, 2)};
+        }
+      }
+    } @else {
+      @include mq($screen-size) {
+        @each $size, $value-map in $size-map {
+          @each $fs, $lh in $value-map {
+            --fs-#{$size}: #{list.nth($value-map, 1)};
+            --lh-#{$size}: #{list.nth($value-map, 2)};
+          }
+        }
+      }
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    @each $color, $shade-map in $dark {
+      @each $shade, $value in $shade-map {
+        --clr-#{$color}-#{$shade}: #{$value};
+      }
+    }
+  }
+}
